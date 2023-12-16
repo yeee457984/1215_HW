@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+</head>
+<body>
+
+<script>
+    var rand = Math.floor((Math.random() * 10) + 1);
+    var guessedCorrectly = false;
+
+    while (!guessedCorrectly) {
+        var userGuess = window.prompt("Guess the number between 1 and 10:");
+
+        // Check if the user clicked cancel or entered an empty string
+        if (userGuess === null || userGuess.trim() === "") {
+            alert("Invalid input. Please enter a number.");
+        } else {
+            var parsedGuess = parseInt(userGuess);
+
+            if (isNaN(parsedGuess)) {
+                alert("Invalid input. Please enter a valid number.");
+            } else {
+                if (parsedGuess === rand) {
+                    guessedCorrectly = true;
+                    alert("Congratulations! You guessed the correct number: " + rand);
+                } else {
+                    alert("Wrong guess. Try again!");
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
